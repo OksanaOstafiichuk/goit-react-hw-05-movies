@@ -4,6 +4,7 @@ export const Home = () => {
   // API.fetchTrendingMovies().then(response => console.log(response));
   // API.fetchMoviesByName().then(({ data }) => console.log(data.results));
   API.fetchMoviesById().then(({ data }) => console.log(data));
+  API.fetchCast().then(({ data }) => console.log(data));
 
   return (
     <div>

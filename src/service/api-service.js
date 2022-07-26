@@ -21,3 +21,9 @@ export const fetchMoviesById = () => {
     const response = axios.get(`/movie/414906?api_key=${API_KEY}&language=en-US`)
     return response;
 }
+
+export const fetchCast = () => {
+    const response = axios.get(`/movie/414906/credits?api_key=${API_KEY}&language=en-US`)
+    return response;
+}
+
