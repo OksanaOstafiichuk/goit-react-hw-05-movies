@@ -8,3 +8,9 @@ export const fetchTrendingMovies = () => {
     return response;
 }
 
+
+// 414906
+export const fetchMoviesById = () => {
+    const response = axios.get(`/movie/414906?api_key=${API_KEY}&language=en-US`)
+    return response;
+}

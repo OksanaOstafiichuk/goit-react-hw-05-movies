@@ -1,7 +1,8 @@
 import * as API from '../../service/api-service';
 
 export const Home = () => {
-  API.fetchTrendingMovies().then(({ data }) => console.log(data.results));
+  // API.fetchTrendingMovies().then(response => console.log(response));
+  API.fetchMoviesById().then(({ data }) => console.log(data));
 
   return (
     <div>
