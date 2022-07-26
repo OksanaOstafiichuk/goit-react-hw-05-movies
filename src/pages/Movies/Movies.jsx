@@ -9,8 +9,7 @@ import { TrendingMoviesList } from 'components/TrendingMoviesList/TrendingMovies
 export const Movies = () => {
   const [searchValue, setSearchValue] = useState('');
   const [moviesByName, setMoviesByName] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query');
+  const [setSearchParams] = useSearchParams();
 
   const hendelSearchForm = searchValue => {
     setSearchValue(searchValue);
