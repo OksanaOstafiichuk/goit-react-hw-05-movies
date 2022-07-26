@@ -8,26 +8,24 @@ export const fetchTrendingMovies = () => {
     return response;
 }
 
-
-//query - добавляти динамічно, подивитися чи є український переклад фільмів = uk
-export const fetchMoviesByName = () => {
-    const response = axios.get(`/search/movie?api_key=${API_KEY}&query='titanic'&language=en-US&page=1&include_adult=false`)
+//подивитися чи є український переклад фільмів = uk
+export const fetchMoviesByName = (searchValue) => {
+    const response = axios.get(`/search/movie?api_key=${API_KEY}&query=${searchValue}&language=en-US&page=1&include_adult=false`)
     return response;
 }
 
-
-// 414906
+// 414906 - {movie_id} динамічно вставляти id
 export const fetchMoviesById = () => {
-    const response = axios.get(`/movie/414906?api_key=${API_KEY}&language=en-US`)
+    const response = axios.get(`/movie/{movie_id}?api_key=${API_KEY}&language=en-US`)
     return response;
 }
 
 export const fetchCast = () => {
-    const response = axios.get(`/movie/414906/credits?api_key=${API_KEY}&language=en-US`)
+    const response = axios.get(`/movie/{movie_id}/credits?api_key=${API_KEY}&language=en-US`)
     return response;
 }
 
 export const fetchReviews = () => {
-    const response = axios.get(`/movie/414906/reviews?api_key=${API_KEY}&language=en-US`)
+    const response = axios.get(`/movie/{movie_id}/reviews?api_key=${API_KEY}&language=en-US`)
     return response;
 }
