@@ -27,3 +27,7 @@ export const fetchCast = () => {
     return response;
 }
 
+export const fetchReviews = () => {
+    const response = axios.get(`/movie/414906/reviews?api_key=${API_KEY}&language=en-US`)
+    return response;
+}
