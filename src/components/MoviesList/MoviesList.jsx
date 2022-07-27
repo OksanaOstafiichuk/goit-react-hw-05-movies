@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export const TrendingMoviesList = ({ movies }) => {
+export const MoviesList = ({ movies }) => {
   return (
     <ul>
       {movies.map(({ id, title, original_name }) => {

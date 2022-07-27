@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 
 import * as API from '../../service/api-service';
 
-import { TrendingMoviesList } from 'components/TrendingMoviesList/TrendingMoviesList';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 
-// API.fetchMoviesById().then(({ data }) => console.log(data));
 // API.fetchCast().then(({ data }) => console.log(data));
 // API.fetchReviews().then(({ data }) => console.log(data));
 
@@ -20,7 +19,7 @@ export const Home = () => {
   return (
     <div>
       <h2>Trending Movies Today</h2>
-      <TrendingMoviesList movies={trendingMovies} />
+      <MoviesList movies={trendingMovies} />
     </div>
   );
 };

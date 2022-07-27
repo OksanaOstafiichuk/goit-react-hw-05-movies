@@ -14,18 +14,17 @@ export const fetchMoviesByName = (searchValue) => {
     return response;
 }
 
-// 414906 - {movie_id} динамічно вставляти id
-export const fetchMoviesById = () => {
-    const response = axios.get(`/movie/{movie_id}?api_key=${API_KEY}&language=en-US`)
+export const fetchMoviesById = (movieId) => {
+    const response = axios.get(`/movie/${movieId}?api_key=${API_KEY}&language=en-US`)
     return response;
 }
 
-export const fetchCast = () => {
-    const response = axios.get(`/movie/{movie_id}/credits?api_key=${API_KEY}&language=en-US`)
+export const fetchCast = (movieId) => {
+    const response = axios.get(`/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
     return response;
 }
 
-export const fetchReviews = () => {
-    const response = axios.get(`/movie/{movie_id}/reviews?api_key=${API_KEY}&language=en-US`)
+export const fetchReviews = (movieId) => {
+    const response = axios.get(`/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`)
     return response;
 }
