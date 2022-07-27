@@ -4,12 +4,12 @@ import { useSearchParams } from 'react-router-dom';
 import * as API from '../../service/api-service';
 
 import { SearchForm } from 'components/SearchForm/SearchForm';
-import { TrendingMoviesList } from 'components/TrendingMoviesList/TrendingMoviesList';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 
 export const Movies = () => {
   const [searchValue, setSearchValue] = useState('');
   const [moviesByName, setMoviesByName] = useState([]);
-  const [setSearchParams] = useSearchParams();
+  const [SearchParams, setSearchParams] = useSearchParams();
 
   const hendelSearchForm = searchValue => {
     setSearchValue(searchValue);
@@ -30,7 +30,7 @@ export const Movies = () => {
     <div>
       <h2>Movies</h2>
       <SearchForm onSubmit={hendelSearchForm} />
-      <TrendingMoviesList movies={moviesByName} />
+      <MoviesList movies={moviesByName} />
     </div>
   );
 };
