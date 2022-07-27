@@ -1,7 +1,7 @@
 export const MoviesItem = ({ movieDetails }) => {
   const { poster_path, original_title, overview, genres, vote_average } =
     movieDetails;
-  // console.log(genres);
+  console.log(genres);
 
   return (
     <div>
