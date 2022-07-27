@@ -1,9 +1,7 @@
 export const MoviesItem = ({ movieDetails }) => {
   const { poster_path, original_title, overview, genres, vote_average } =
     movieDetails;
-  //   console.log(genres);
-  //   const all = genres.map(genre => console.log(genre));
-  //   console.log(all);
+  // console.log(genres);
 
   return (
     <div>

@@ -4,9 +4,6 @@ import * as API from '../../service/api-service';
 
 import { MoviesList } from 'components/MoviesList/MoviesList';
 
-// API.fetchCast().then(({ data }) => console.log(data));
-// API.fetchReviews().then(({ data }) => console.log(data));
-
 export const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
 

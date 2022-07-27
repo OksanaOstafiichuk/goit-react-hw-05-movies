@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import * as API from '../../service/api-service';
 
 import { MoviesItem } from 'components/MoviesItem/MoviesItem';
+import { AddInform } from 'components/AddInform/AddInform';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -19,6 +20,7 @@ export const MovieDetails = () => {
     <div>
       <h2>MovieDetails</h2>
       <MoviesItem movieDetails={movieDetails} />
+      <AddInform />
       <Outlet />
     </div>
   );
