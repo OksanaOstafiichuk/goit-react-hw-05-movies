@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 export const SearchForm = ({ onSubmit }) => {
   const [searchValue, setSearchValue] = useState('');
@@ -11,7 +12,7 @@ export const SearchForm = ({ onSubmit }) => {
     evt.preventDefault();
 
     if (searchValue.trim() === '') {
-      alert('oopps');
+      toast.warn('Sorry, you need to enter a movie title.');
       return;
     }
 
