@@ -10,7 +10,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 export const Movies = () => {
   const [searchValue, setSearchValue] = useState('');
   const [moviesByName, setMoviesByName] = useState([]);
-  const [SearchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
   // console.log(SearchParams);
   const hendelSearchForm = searchValue => {
     setSearchValue(searchValue);
