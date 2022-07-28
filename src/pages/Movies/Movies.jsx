@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import * as API from '../../service/api-service';
 
@@ -20,10 +21,14 @@ export const Movies = () => {
       return;
     }
 
-    API.fetchMoviesByName(searchValue).then(({ data }) => {
-      setMoviesByName(data.results);
-      setSearchParams({ query: searchValue });
-    });
+    API.fetchMoviesByName(searchValue)
+      .then(({ data }) => {
+        setMoviesByName(data.results);
+        setSearchParams({ query: searchValue });
+      })
+      .catch(error => {
+        toast.error(error.message);
+      });
   }, [searchValue, setSearchParams]);
 
   return (

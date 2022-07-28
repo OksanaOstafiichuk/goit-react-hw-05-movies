@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 import * as API from '../../service/api-service';
 
@@ -8,9 +9,13 @@ export const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
-    API.fetchTrendingMovies().then(({ data }) => {
-      setTrendingMovies(data.results);
-    });
+    API.fetchTrendingMovies()
+      .then(({ data }) => {
+        setTrendingMovies(data.results);
+      })
+      .catch(error => {
+        toast.error(error.message);
+      });
   }, []);
 
   return (

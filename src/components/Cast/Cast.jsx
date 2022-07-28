@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import * as API from '../../service/api-service';
 
@@ -8,9 +9,13 @@ export const Cast = () => {
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
-    API.fetchCast(movieId).then(({ data }) => {
-      setCast(data.cast);
-    });
+    API.fetchCast(movieId)
+      .then(({ data }) => {
+        setCast(data.cast);
+      })
+      .catch(error => {
+        toast.error(error.message);
+      });
   }, [movieId]);
 
   return (

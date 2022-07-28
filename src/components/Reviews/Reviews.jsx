@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import * as API from '../../service/api-service';
 
@@ -8,9 +9,13 @@ export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    API.fetchReviews(movieId).then(({ data }) => {
-      setReviews(data.results);
-    });
+    API.fetchReviews(movieId)
+      .then(({ data }) => {
+        setReviews(data.results);
+      })
+      .catch(error => {
+        toast.error(error.message);
+      });
   }, [movieId]);
 
   return (

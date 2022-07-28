@@ -1,5 +1,6 @@
 import { Outlet, useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import * as API from '../../service/api-service';
 
@@ -12,9 +13,13 @@ export const MovieDetails = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    API.fetchMoviesById(movieId).then(({ data }) => {
-      setMovieDetails(data);
-    });
+    API.fetchMoviesById(movieId)
+      .then(({ data }) => {
+        setMovieDetails(data);
+      })
+      .catch(error => {
+        toast.error(error.message);
+      });
   }, [movieId]);
 
   const handlerGoBack = () => navigate(-1);
