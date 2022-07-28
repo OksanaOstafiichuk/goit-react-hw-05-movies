@@ -1,4 +1,4 @@
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import * as API from '../../service/api-service';
@@ -9,6 +9,7 @@ import { AddInform } from 'components/AddInform/AddInform';
 export const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState({});
+  let navigate = useNavigate();
 
   useEffect(() => {
     API.fetchMoviesById(movieId).then(({ data }) => {
@@ -16,9 +17,13 @@ export const MovieDetails = () => {
     });
   }, [movieId]);
 
+  const handlerGoBack = () => navigate(-1);
+
   return (
     <div>
-      <h2>MovieDetails</h2>
+      <button type="button" onClick={handlerGoBack}>
+        Go Back
+      </button>
       <MoviesItem movieDetails={movieDetails} />
       <AddInform />
       <Outlet />

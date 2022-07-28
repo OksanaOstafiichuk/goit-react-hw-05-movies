@@ -23,9 +23,7 @@ export const SearchForm = ({ onSubmit }) => {
     <form onSubmit={hendelSubmit}>
       <input
         type="text"
-        autoComplete="off"
-        autoFocus
-        placeholder="Search images and photos"
+        placeholder="Search movie"
         value={searchValue}
         onChange={hendelChange}
       />
