@@ -8,7 +8,7 @@ import { SearchForm } from 'components/SearchForm/SearchForm';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 
 export const Movies = () => {
-  const [searchValue, setSearchValue] = useState('');
+  const [, setSearchValue] = useState('');
   const [moviesByName, setMoviesByName] = useState([]);
   const [SearchParams, setSearchParams] = useSearchParams();
 
