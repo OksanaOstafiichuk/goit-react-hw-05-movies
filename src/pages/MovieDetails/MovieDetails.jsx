@@ -16,6 +16,7 @@ export const MovieDetails = () => {
     API.fetchMoviesById(movieId)
       .then(({ data }) => {
         setMovieDetails(data);
+        console.log(data);
       })
       .catch(error => {
         toast.error(error.message);
