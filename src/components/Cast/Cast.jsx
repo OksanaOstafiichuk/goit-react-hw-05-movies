@@ -21,14 +21,20 @@ export const Cast = () => {
   return (
     <ul>
       {cast.map(actor => {
+        const { profile_path, id, name, character } = actor;
+        const profile = () => {
+          if (profile_path) {
+            return `https://image.tmdb.org/t/p/w500${profile_path}`;
+          } else {
+            return `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq_wGA4J08YoSd2-aTz9OQrZeSA2fnZxEbOA&usqp=CAU`;
+          }
+        };
+
         return (
-          <li key={actor.id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
-              alt={actor.name}
-            />
-            <h4>{actor.name}</h4>
-            <p>Character: {actor.character}</p>
+          <li key={id}>
+            <img src={profile()} alt={name} />
+            <h4>{name}</h4>
+            <p>Character: {character}</p>
           </li>
         );
       })}
