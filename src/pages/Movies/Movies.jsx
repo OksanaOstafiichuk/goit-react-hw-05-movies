@@ -10,26 +10,27 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 export const Movies = () => {
   const [searchValue, setSearchValue] = useState('');
   const [moviesByName, setMoviesByName] = useState([]);
-  const [, setSearchParams] = useSearchParams();
-  // console.log(SearchParams);
+  const [SearchParams, setSearchParams] = useSearchParams();
+
   const hendelSearchForm = searchValue => {
     setSearchValue(searchValue);
+    setSearchParams({ query: searchValue });
   };
 
   useEffect(() => {
-    if (searchValue === '') {
+    const value = SearchParams.get('query');
+    if (!value) {
       return;
     }
 
-    API.fetchMoviesByName(searchValue)
+    API.fetchMoviesByName(value)
       .then(({ data }) => {
         setMoviesByName(data.results);
-        setSearchParams({ query: searchValue });
       })
       .catch(error => {
         toast.error(error.message);
       });
-  }, [searchValue, setSearchParams]);
+  }, [SearchParams]);
 
   return (
     <div>
