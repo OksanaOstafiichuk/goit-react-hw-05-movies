@@ -1,4 +1,10 @@
-import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
+import {
+  Outlet,
+  useParams,
+  useLocation,
+  Link,
+  Navigate,
+} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -11,6 +17,7 @@ export const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState({});
   const location = useLocation();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     API.fetchMoviesById(movieId)
@@ -19,6 +26,7 @@ export const MovieDetails = () => {
       })
       .catch(error => {
         toast.error(error.message);
+        setError(error);
       });
   }, [movieId]);
 
@@ -27,6 +35,8 @@ export const MovieDetails = () => {
   return (
     <div>
       <Link to={handlerGoBack}>Go Back</Link>
+
+      {error && <Navigate to="/" replace />}
 
       <MoviesItem movieDetails={movieDetails} />
       <AddInform />
