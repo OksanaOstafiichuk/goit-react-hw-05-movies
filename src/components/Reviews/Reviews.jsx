@@ -19,15 +19,21 @@ export const Reviews = () => {
   }, [movieId]);
 
   return (
-    <ul>
-      {reviews.map(review => {
-        return (
-          <li key={review.id}>
-            <h4>{review.author}</h4>
-            <p>{review.content}</p>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      {reviews !== [] ? (
+        <p>No one has left a review yet</p>
+      ) : (
+        <ul>
+          {reviews.map(review => {
+            return (
+              <li key={review.id}>
+                <h4>{review.author}</h4>
+                <p>{review.content}</p>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </>
   );
 };
