@@ -5,6 +5,7 @@ import * as API from '../../service/api-service';
 
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Loader } from 'components/Loader/Loader';
+import { Main, Title } from './Home.styled';
 
 export const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -23,10 +24,10 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Trending Movies Today</h2>
+    <Main>
+      <Title>Trending Movies Today</Title>
       {isLoading && <Loader />}
       <MoviesList movies={trendingMovies} />
-    </div>
+    </Main>
   );
 };

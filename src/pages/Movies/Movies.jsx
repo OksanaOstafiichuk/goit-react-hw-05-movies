@@ -7,6 +7,7 @@ import * as API from '../../service/api-service';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
+import { Main } from '../Home/Home.styled';
 
 export const Movies = () => {
   const [, setSearchValue] = useState('');
@@ -38,12 +39,11 @@ export const Movies = () => {
   }, [SearchParams]);
 
   return (
-    <div>
-      <h2>Movies</h2>
+    <Main>
       <SearchForm onSubmit={hendelSearchForm} />
       {isLoading && <Loader />}
 
       <MoviesList movies={moviesByName} />
-    </div>
+    </Main>
   );
 };
