@@ -1,3 +1,11 @@
+import {
+  CartMovie,
+  DescMovie,
+  ImgMovie,
+  SpanMovie,
+  TitleMovie,
+} from './MoviesItem.styled';
+
 export const MoviesItem = ({ movieDetails }) => {
   const { poster_path, original_title, overview, genres, vote_average } =
     movieDetails;
@@ -23,20 +31,23 @@ export const MoviesItem = ({ movieDetails }) => {
   };
 
   return (
-    <div>
-      <img src={poster()} alt={original_title} />
+    <CartMovie>
+      <ImgMovie src={poster()} alt={original_title} />
       <div>
-        <h2>{original_title}</h2>
-        <p>User Score {vote_average}</p>
-        <p>
-          <span>Overview</span>
+        <TitleMovie>{original_title}</TitleMovie>
+        <DescMovie>
+          <SpanMovie>User Score </SpanMovie>
+          {vote_average}
+        </DescMovie>
+        <DescMovie>
+          <SpanMovie>Overview: </SpanMovie>
           {overview}
-        </p>
-        <p>
-          <span>Genres: </span>
+        </DescMovie>
+        <DescMovie>
+          <SpanMovie>Genres: </SpanMovie>
           {genresAll()}
-        </p>
+        </DescMovie>
       </div>
-    </div>
+    </CartMovie>
   );
 };

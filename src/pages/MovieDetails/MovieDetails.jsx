@@ -1,10 +1,4 @@
-import {
-  Outlet,
-  useParams,
-  useLocation,
-  Link,
-  Navigate,
-} from 'react-router-dom';
+import { Outlet, useParams, useLocation, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -12,6 +6,7 @@ import * as API from '../../service/api-service';
 
 import { MoviesItem } from 'components/MoviesItem/MoviesItem';
 import { AddInform } from 'components/AddInform/AddInform';
+import { Container, LinkBtn } from './MovieDetails.styled';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
@@ -33,14 +28,14 @@ export const MovieDetails = () => {
   const handlerGoBack = location?.state?.from ?? '/';
 
   return (
-    <div>
-      <Link to={handlerGoBack}>Go Back</Link>
+    <Container>
+      <LinkBtn to={handlerGoBack}>Go Back</LinkBtn>
 
       {error && <Navigate to="/" replace />}
 
       <MoviesItem movieDetails={movieDetails} />
       <AddInform />
       <Outlet />
-    </div>
+    </Container>
   );
 };
