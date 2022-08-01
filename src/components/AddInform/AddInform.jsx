@@ -1,23 +1,25 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { AddList, AddTitle } from './AddInform.styled';
+import { StyledLink } from '../Navigation/Navigation.styled';
 
 export const AddInform = () => {
   const location = useLocation();
 
   return (
     <>
-      <h3>Additional information</h3>
-      <ul>
+      <AddTitle>Additional information</AddTitle>
+      <AddList>
         <li>
-          <Link to="cast" state={{ from: location?.state?.from }}>
+          <StyledLink to="cast" state={{ from: location?.state?.from }}>
             Cast
-          </Link>
+          </StyledLink>
         </li>
         <li>
-          <Link to="reviews" state={{ from: location?.state?.from }}>
+          <StyledLink to="reviews" state={{ from: location?.state?.from }}>
             Reviews
-          </Link>
+          </StyledLink>
         </li>
-      </ul>
+      </AddList>
     </>
   );
 };

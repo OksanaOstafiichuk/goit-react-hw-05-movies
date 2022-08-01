@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import * as API from '../../service/api-service';
+import { CastDesc, CastImg, CastItem, CastList, CastName } from './Cast.styled';
 
 export const Cast = () => {
   const { movieId } = useParams();
@@ -19,7 +20,7 @@ export const Cast = () => {
   }, [movieId]);
 
   return (
-    <ul>
+    <CastList>
       {cast.map(actor => {
         const { profile_path, id, name, character } = actor;
         const profile = () => {
@@ -31,13 +32,13 @@ export const Cast = () => {
         };
 
         return (
-          <li key={id}>
-            <img src={profile()} alt={name} />
-            <h4>{name}</h4>
-            <p>Character: {character}</p>
-          </li>
+          <CastItem key={id}>
+            <CastImg src={profile()} alt={name} />
+            <CastName>{name}</CastName>
+            <CastDesc>Character: {character}</CastDesc>
+          </CastItem>
         );
       })}
-    </ul>
+    </CastList>
   );
 };

@@ -3,6 +3,12 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import * as API from '../../service/api-service';
+import {
+  ReviewsAuthor,
+  ReviewsItem,
+  ReviewsList,
+  ReviewsText,
+} from './Reviews.styled';
 
 export const Reviews = () => {
   const { movieId } = useParams();
@@ -20,19 +26,19 @@ export const Reviews = () => {
 
   return (
     <>
-      {reviews !== [] ? (
-        <p>No one has left a review yet</p>
-      ) : (
-        <ul>
+      {reviews.length !== 0 ? (
+        <ReviewsList>
           {reviews.map(review => {
             return (
-              <li key={review.id}>
-                <h4>{review.author}</h4>
+              <ReviewsItem key={review.id}>
                 <p>{review.content}</p>
-              </li>
+                <ReviewsAuthor>{review.author}</ReviewsAuthor>
+              </ReviewsItem>
             );
           })}
-        </ul>
+        </ReviewsList>
+      ) : (
+        <ReviewsText>No one has left a review yet</ReviewsText>
       )}
     </>
   );
