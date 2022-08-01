@@ -1,9 +1,9 @@
 import { Rings } from 'react-loader-spinner';
-
+import { Spiner } from './Loader.styled';
 export const Loader = () => {
   return (
-    <div>
-      <Rings color="#00BFFF" height={80} width={80} />{' '}
-    </div>
+    <Spiner>
+      <Rings color="rgba(26, 7, 22, 0.267)" height={200} width={200} />
+    </Spiner>
   );
 };
