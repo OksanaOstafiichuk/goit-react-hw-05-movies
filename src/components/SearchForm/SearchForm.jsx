@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { ImSearch } from 'react-icons/im';
+
+import { Form, Input, Button } from './SearchForm.styled';
 
 export const SearchForm = ({ onSubmit }) => {
   const [searchValue, setSearchValue] = useState('');
@@ -21,14 +24,16 @@ export const SearchForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={hendelSubmit}>
-      <input
+    <Form onSubmit={hendelSubmit}>
+      <Input
         type="text"
         placeholder="Search movie"
         value={searchValue}
         onChange={hendelChange}
       />
-      <button type="submit">Search movies</button>
-    </form>
+      <Button type="submit">
+        <ImSearch />
+      </Button>
+    </Form>
   );
 };
