@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Navigate = styled.div`
-  padding: 50px 0;
+  padding: 40px 0;
   margin: 0 30px;
   display: flex;
 `;

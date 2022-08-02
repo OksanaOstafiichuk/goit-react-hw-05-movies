@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  margin: 0 30px;
+  margin: 20px 30px;
 `;
 
 export const LinkBtn = styled(Link)`

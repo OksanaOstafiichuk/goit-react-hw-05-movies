@@ -38,7 +38,7 @@ export const Reviews = () => {
           })}
         </ReviewsList>
       ) : (
-        <ReviewsText>No one has left a review yet</ReviewsText>
+        <ReviewsText>We don't have any reviews for this movie</ReviewsText>
       )}
     </>
   );
