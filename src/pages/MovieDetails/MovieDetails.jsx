@@ -8,7 +8,7 @@ import { MoviesItem } from 'components/MoviesItem/MoviesItem';
 import { AddInform } from 'components/AddInform/AddInform';
 import { Container, LinkBtn } from './MovieDetails.styled';
 
-export const MovieDetails = () => {
+export default function MovieDetails() {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState({});
   const location = useLocation();
@@ -38,4 +38,4 @@ export const MovieDetails = () => {
       <Outlet />
     </Container>
   );
-};
+}

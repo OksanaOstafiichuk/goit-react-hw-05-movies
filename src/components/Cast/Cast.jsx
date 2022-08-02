@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import * as API from '../../service/api-service';
 import { CastDesc, CastImg, CastItem, CastList, CastName } from './Cast.styled';
 
-export const Cast = () => {
+export default function Cast() {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
 
@@ -41,4 +41,4 @@ export const Cast = () => {
       })}
     </CastList>
   );
-};
+}

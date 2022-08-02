@@ -7,7 +7,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Loader } from 'components/Loader/Loader';
 import { Main, Title } from './Home.styled';
 
-export const Home = () => {
+export default function Home() {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(null);
 
@@ -30,4 +30,4 @@ export const Home = () => {
       <MoviesList movies={trendingMovies} />
     </Main>
   );
-};
+}

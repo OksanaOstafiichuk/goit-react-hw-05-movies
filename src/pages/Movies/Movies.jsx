@@ -9,7 +9,7 @@ import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Main } from '../Home/Home.styled';
 
-export const Movies = () => {
+export default function Movies() {
   const [, setSearchValue] = useState('');
   const [moviesByName, setMoviesByName] = useState([]);
   const [SearchParams, setSearchParams] = useSearchParams();
@@ -46,4 +46,4 @@ export const Movies = () => {
       <MoviesList movies={moviesByName} />
     </Main>
   );
-};
+}

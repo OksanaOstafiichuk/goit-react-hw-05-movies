@@ -1,27 +1,42 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AppBar } from './AppBar/AppBar';
+import { Loader } from './Loader/Loader';
 
-import { Layout } from './Layout/Layout';
-import { Home } from '../pages/Home/Home';
-import { Movies } from '../pages/Movies/Movies';
-import { MovieDetails } from '../pages/MovieDetails/MovieDetails';
-import { Cast } from './Cast/Cast';
-import { Reviews } from './Reviews/Reviews';
+const Home = lazy(() =>
+  import('../pages/Home/Home' /* webpackChunkName: "home" */)
+);
+const Movies = lazy(() =>
+  import('../pages/Movies/Movies' /* webpackChunkName: "movies" */)
+);
+const MovieDetails = lazy(() =>
+  import(
+    '../pages/MovieDetails/MovieDetails' /* webpackChunkName: "movieDetails" */
+  )
+);
+const Cast = lazy(() => import('./Cast/Cast' /* webpackChunkName: "cast" */));
+const Reviews = lazy(() =>
+  import('./Reviews/Reviews' /* webpackChunkName: "reviews" */)
+);
 
 export const App = () => {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+      <AppBar />
+
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="movies" element={<Movies />} />
           <Route path="movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
-        </Route>
-      </Routes>
+        </Routes>
+      </Suspense>
+
       <ToastContainer
         position="top-center"
         autoClose={3000}
