@@ -7,6 +7,7 @@ export const Main = styled.div`
   margin-left: auto;
   margin-right: auto;
 `;
+
 export const Title = styled.h2`
   text-transform: uppercase;
   font-size: 32px;

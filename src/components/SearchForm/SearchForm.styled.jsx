@@ -5,6 +5,7 @@ export const Form = styled.form`
   width: 380px;
   margin: 30px auto;
 `;
+
 export const Input = styled.input`
   padding: 0 14px 4px 0;
   font-style: normal;

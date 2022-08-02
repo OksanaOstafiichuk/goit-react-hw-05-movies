@@ -1,4 +1,3 @@
-// import { NavLink } from 'react-router-dom';
 import { Navigate, StyledLink } from './Navigation.styled';
 
 export const Navigation = () => {

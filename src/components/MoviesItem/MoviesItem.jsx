@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
   CartMovie,
   DescMovie,
@@ -50,4 +52,14 @@ export const MoviesItem = ({ movieDetails }) => {
       </div>
     </CartMovie>
   );
+};
+
+MoviesItem.propTypes = {
+  movieDetails: PropTypes.shape({
+    poster_path: PropTypes.string,
+    original_title: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.array,
+    vote_average: PropTypes.number.isRequired,
+  }),
 };

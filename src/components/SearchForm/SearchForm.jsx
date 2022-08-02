@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { ImSearch } from 'react-icons/im';
+import PropTypes from 'prop-types';
 
 import { Form, Input, Button } from './SearchForm.styled';
 
@@ -36,4 +37,8 @@ export const SearchForm = ({ onSubmit }) => {
       </Button>
     </Form>
   );
+};
+
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func,
 };

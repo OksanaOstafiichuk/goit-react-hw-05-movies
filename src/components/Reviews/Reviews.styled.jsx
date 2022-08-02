@@ -13,10 +13,12 @@ export const ReviewsItem = styled.li`
   line-height: 1.5;
   font-size: 16px;
 `;
+
 export const ReviewsAuthor = styled.h4`
   text-align: right;
   margin-right: 100px;
 `;
+
 export const ReviewsText = styled.p`
   font-size: 24px;
   font-style: italic;
