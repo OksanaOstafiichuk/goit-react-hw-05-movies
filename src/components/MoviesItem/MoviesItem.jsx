@@ -39,7 +39,7 @@ export const MoviesItem = ({ movieDetails }) => {
         <TitleMovie>{original_title}</TitleMovie>
         <DescMovie>
           <SpanMovie>User Score </SpanMovie>
-          {vote_average}
+          {Math.round((vote_average * 100) / 10)}%
         </DescMovie>
         <DescMovie>
           <SpanMovie>Overview: </SpanMovie>
@@ -57,9 +57,9 @@ export const MoviesItem = ({ movieDetails }) => {
 MoviesItem.propTypes = {
   movieDetails: PropTypes.shape({
     poster_path: PropTypes.string,
-    original_title: PropTypes.string.isRequired,
-    overview: PropTypes.string.isRequired,
+    original_title: PropTypes.string,
+    overview: PropTypes.string,
     genres: PropTypes.array,
-    vote_average: PropTypes.number.isRequired,
+    vote_average: PropTypes.number,
   }),
 };
