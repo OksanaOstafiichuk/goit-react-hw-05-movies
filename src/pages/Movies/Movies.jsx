@@ -12,7 +12,7 @@ import { Main } from '../Home/Home.styled';
 export default function Movies() {
   const [, setSearchValue] = useState('');
   const [moviesByName, setMoviesByName] = useState([]);
-  const [SearchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(null);
 
   const hendelSearchForm = searchValue => {
@@ -21,7 +21,7 @@ export default function Movies() {
   };
 
   useEffect(() => {
-    const value = SearchParams.get('query');
+    const value = searchParams.get('query');
     if (!value) {
       return;
     }
@@ -36,7 +36,7 @@ export default function Movies() {
       .catch(error => {
         toast.error(error.message);
       });
-  }, [SearchParams]);
+  }, [searchParams]);
 
   return (
     <Main>
